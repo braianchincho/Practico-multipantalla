@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, Text, View , FlatList, ActivityIndicator, StyleSheet } from 'react-native';
 import axios from 'axios';
 import PhotoDetail from './PhotoDetail';
 
@@ -7,7 +7,7 @@ class PhotoList extends Component {
   state = { photos: null };
 
   componentWillMount() {
-    axios.get(`https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=6e8a597cb502b7b95dbd46a46e25db8d&photoset_id=${this.props.albumId}&user_id=137290658%40N08&format=json&nojsoncallback=1`)
+    axios.get(`https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=6e8a597cb502b7b95dbd46a46e25db8d&photoset_id=${this.props.albumId}&user_id=159173285@N03&format=json&nojsoncallback=1`)
       .then(response => this.setState({ photos: response.data.photoset.photo }));
   }
 
@@ -23,11 +23,9 @@ class PhotoList extends Component {
 
     if (!this.state.photos) { 
 			return (
-                <View style={{ flex: 1 }}>
-					<Text>
-                        Loading...
-					</Text>
-                </View>
+          <View style={[styles.container, styles.horizontal]}>
+              <ActivityIndicator size="large" color="#0000ff" style={{flex: 3}} />
+          </View>
 				);
     }
 
@@ -36,9 +34,22 @@ class PhotoList extends Component {
             <ScrollView>
                 {this.renderAlbums()}
             </ScrollView>
+          
         </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center'
+  },
+  horizontal: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 10
+    }
+})
 
 export default PhotoList;
