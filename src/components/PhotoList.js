@@ -3,7 +3,7 @@ import { ScrollView, Text, View , FlatList, ActivityIndicator, StyleSheet,Linkin
 import axios from 'axios';
 import PhotoDetail from './PhotoDetail';
 import { List, ListItem, SearchBar } from "react-native-elements";
-
+// foto list
 class PhotoList extends Component {
   state = { photos: null };
 

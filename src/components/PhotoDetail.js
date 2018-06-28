@@ -3,7 +3,7 @@ import { Text, View, Image, Linking } from 'react-native';
 import Card from './Card';
 import CardSection from './CardSection';
 import Button from './Button';
-
+// con el flat list ya no se usa
 const PhotoDetail = ({ title, imageUrl }) => {
   const {
     thumbnailStyle,
