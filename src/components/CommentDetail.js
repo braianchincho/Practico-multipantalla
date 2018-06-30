@@ -3,49 +3,26 @@ import { Text, View, Image, Linking } from 'react-native';
 import Card from './Card';
 import CardSection from './CardSection';
 import Button from './Button';
-import CommentList from './CommentList';
+import { Actions } from 'react-native-router-flux';
 
-const PhotoDetail = ({key, title, imageUrl,photoId}) => {
+const CommentDetail = ({ key,userName, content }) => {
   const {
-    thumbnailStyle,
     headerContentStyle,
-    thumbnailContainerStyle,
+    
     headerTextStyle,
     imageStyle
   } = styles;
 
- 
-
   return (
     <Card>
       <CardSection>
-        <View style={thumbnailContainerStyle}>
-          <Image
-            style={thumbnailStyle}
-            source={{ uri: imageUrl }}
-          />
-        </View>
         <View style={headerContentStyle}>
-          <Text style={headerTextStyle}>{title}</Text>
-          
+          <Text style={headerTextStyle}>{userName}</Text>
+          <Text >{content}</Text>
         </View>
       </CardSection>
 
-      <CardSection>
-        <Image
-          style={imageStyle}
-          source={{ uri: imageUrl }}
-        />
-      </CardSection>
 
-      <CardSection>
-        <Button onPress={() => Linking.openURL(imageUrl)}>
-         Ver ahora!
-        </Button>
-      </CardSection>
-      <CardSection>
-         <CommentList photoId={photoId}/>
-      </CardSection>
     </Card>
   );
 };
@@ -75,4 +52,4 @@ const styles = {
   }
 };
 
-export default PhotoDetail;
+export default CommentDetail;
