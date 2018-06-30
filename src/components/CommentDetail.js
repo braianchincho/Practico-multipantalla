@@ -1,11 +1,10 @@
 import React from 'react';
-import { Text, View, Image, Linking } from 'react-native';
+import { Text } from 'react-native';
 import Card from './Card';
 import CardSection from './CardSection';
-import Button from './Button';
-import { Actions } from 'react-native-router-flux';
 
-const CommentDetail = ({ key,userName, content }) => {
+
+const CommentDetail = ({ userName, content }) => {
   const {
     headerContentStyle,
     
@@ -16,10 +15,10 @@ const CommentDetail = ({ key,userName, content }) => {
   return (
     <Card>
       <CardSection>
-        <View style={headerContentStyle}>
+    
           <Text style={headerTextStyle}>{userName}</Text>
           <Text >{content}</Text>
-        </View>
+        
       </CardSection>
 
 

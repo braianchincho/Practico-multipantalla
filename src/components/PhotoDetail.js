@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Image, Linking } from 'react-native';
+import { Text, View, Image, Linking ,ScrollView} from 'react-native';
 import Card from './Card';
 import CardSection from './CardSection';
 import Button from './Button';
@@ -17,7 +17,7 @@ const PhotoDetail = ({key, title, imageUrl,photoId}) => {
  
 
   return (
-    <Card>
+    <ScrollView>
       <CardSection>
         <View style={thumbnailContainerStyle}>
           <Image
@@ -44,9 +44,12 @@ const PhotoDetail = ({key, title, imageUrl,photoId}) => {
         </Button>
       </CardSection>
       <CardSection>
+         <Text style = {{color:"#27e2f1", fontSize:25}}>Comentarios</Text>
+      </CardSection>
+      <CardSection>
          <CommentList photoId={photoId}/>
       </CardSection>
-    </Card>
+    </ScrollView>
   );
 };
 

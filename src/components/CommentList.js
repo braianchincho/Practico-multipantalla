@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ScrollView, Text, View , FlatList, ActivityIndicator, StyleSheet,Linking } from 'react-native';
 import axios from 'axios';
 import CommentDetail from './CommentDetail';
-
+import { List, ListItem, SearchBar } from "react-native-elements";
 
 class CommentList extends Component {
 
@@ -15,25 +15,26 @@ class CommentList extends Component {
   
 
   componentWillMount() {
-    var url =`https://api.flickr.com/services/rest/?method=flickr.photos.comments.getList&api_key=cc99e0b1479c21ed88391f752e09eca4&photo_id=${this.props.photoId}&min_comment_date=3&format=json&nojsoncallback=1&api_sig=de9c5a74b8ada9593e937a485237a4e3`;
+    var url =`https://api.flickr.com/services/rest/?method=flickr.photos.comments.getList&api_key=b5bfa150afa31b190bd3206ec315515c&photo_id=${this.props.photoId}&format=json&nojsoncallback=1`;
     axios.get(url)
       .then(response => response.data.stat == 'ok' ? 
       this.setState({ comments: response.data.comments.comment }) : 
       console.log('no hay comentarios')
       );
       console.log(this.state.comments);
-     console.log(url);
+      console.log(url);
 }
 
-  renderCommets() {
-      if(this.state.comments.stat == 'ok'){
-                    return this.state.comments.map(comment =>
+  renderComments() {
+   
+       var t= this.state.comments.map(comment =>
         <CommentDetail key={comment.id} userName={comment.authorname} content={comment._content} />
       );
-    }else{return null;}
-  }
-  
+      
+      return t;
  
+  }
+
 
   render() {
     console.log(this.state);
@@ -49,7 +50,28 @@ class CommentList extends Component {
 
     return (
     <View style={{ flex: 1 }}>
-        <ScrollView>{this.renderCommets()}</ScrollView>
+        <FlatList
+            data={this.state.comments}
+            renderItem={({item}) => {return (
+            <ListItem
+                // roundAvatar
+                title={item.authorname}
+                
+                // avatar={{ uri: `https://farm${item.farm}.staticflickr.com/${item.server}/${item.id}_${item.secret}.jpg`}}
+                
+                subtitle = {item._content}
+                        
+                         
+                      
+              
+              
+             />//fin list item
+                 
+               );
+             }}
+             keyExtractor={item => item.id}
+
+          />
      </View>
     );
   }

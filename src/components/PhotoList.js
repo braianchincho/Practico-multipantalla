@@ -50,9 +50,10 @@ class PhotoList extends Component {
                                              }
                         
                           )//end actions photo detail
-                               
                         
+                       
                         }//fin on press button
+                      
               
               
              />//fin list item
