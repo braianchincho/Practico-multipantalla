@@ -24,7 +24,7 @@ const AlbumDetail = ({ title, albumId }) => {
 
       <CardSection>
         <Button onPress={() => Actions.photoList({albumId:albumId})}>
-          Ver ahora!
+         <Text > Ver ahora!</Text>
         </Button>
       </CardSection>
     </Card>
@@ -38,7 +38,8 @@ const styles = {
     
   },
   headerTextStyle: {
-    fontSize: 18
+    fontSize: 18,
+   
   },
   thumbnailStyle: {
     height: 50,

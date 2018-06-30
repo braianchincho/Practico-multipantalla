@@ -15,9 +15,9 @@ class CommentList extends Component {
   
 
   componentWillMount() {
-    var url =`https://api.flickr.com/services/rest/?method=flickr.photos.comments.getList&api_key=b5bfa150afa31b190bd3206ec315515c&photo_id=${this.props.photoId}&format=json&nojsoncallback=1`;
+    var url =`https://api.flickr.com/services/rest/?method=flickr.photos.comments.getList&api_key=bf8f6eb6d8864de3bcac43bbf25ecc1e&photo_id=${this.props.photoId}&format=json&nojsoncallback=1`;
     axios.get(url)
-      .then(response => response.data.stat == 'ok' ? 
+      .then(response => response.data.stat != 'fail' ? 
       this.setState({ comments: response.data.comments.comment }) : 
       console.log('no hay comentarios')
       );
