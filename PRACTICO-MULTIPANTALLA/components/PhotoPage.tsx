@@ -23,9 +23,9 @@ class PhotoPage extends React.Component<PhotoPageProps, PhotoPageState> {
         const url = `${base}&api_key=${apiKey}&user_id=${usrId}&photoset_id=${this.props.albumId}&format=json&nojsoncallback=1&page=1&per_page=20`;
         console.log(url)
         axios.get(url).then(response => {
-            console.log(response)
+           // console.log(response)
             this.setState({ photos: response.data.photoset.photo })
-            console.log(response.data.photoset)
+            //console.log(response.data.photoset)
         });
     }
     render() { 
