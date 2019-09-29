@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Text, Card, Button, Icon } from 'react-native-elements';
 import { Linking } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 export interface PhotoItemProps {
     photo: any
 }
@@ -23,7 +24,7 @@ class PhotoItem extends React.Component<PhotoItemProps, PhotoItemState> {
                 <Button
                     buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
                     title='Ver ahora!' 
-                    onPress={() => Linking.openURL(urlImage)}
+                    onPress={() => Actions.foto({ urlImage , title , photoId: id } )}
                 />
             </Card>
         );
