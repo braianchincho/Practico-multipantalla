@@ -5,7 +5,7 @@ import PhotoTileActions from './PhotoTileActions';
 export interface PhotoTileProps {
     urlImage: string,
     title: string,
-    id: string
+    photoId: string
 
 }
  
@@ -16,14 +16,14 @@ export interface PhotoTileState {
 class PhotoTile extends React.Component<PhotoTileProps, PhotoTileState> {
     state = {}
     render() { 
-        const  { urlImage, title, id } = this.props;
+        const  { urlImage, title, photoId } = this.props;
         return ( 
             <View>
                 <Tile
                     imageSrc={{uri: urlImage}}
                     title={title}
                  />
-                <PhotoTileActions urlImage={urlImage} photoId={id}/>
+                <PhotoTileActions urlImage={urlImage} photoId={photoId}/>
             </View>
 
          );

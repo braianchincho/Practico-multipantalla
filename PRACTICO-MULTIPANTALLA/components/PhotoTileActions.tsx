@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { View, Linking } from 'react-native';
-import { Button, Text } from 'react-native-elements';
+import { Button, Text, Icon } from 'react-native-elements';
+import PhotoComentsComponent from './PhotoComentsComponent';
 export interface PhotoTileActionsProps {
     urlImage: string,
     photoId: string
@@ -14,20 +15,26 @@ export interface PhotoTileActionsState {
 class PhotoTileActions extends React.Component<PhotoTileActionsProps, PhotoTileActionsState> {
     state = {  }
     render() { 
-        const { urlImage } = this.props;
+        const { urlImage , photoId } = this.props;
         return (
-            <View style={{flex: 1, flexDirection: 'row'}}>
-                <View style={{height: 80}}>
-                    <Button
-                        buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-                        title='Ver ahora!' 
+            <View>
+                <View style={{flex: 1, flexDirection: 'row'}}>
+
+                    <View style={{height: 80 , width: '65%' }}>
+                        <Icon style={{marginRight: 55}}
                         onPress={() => Linking.openURL(urlImage)}
-                    />
+                        name="add-a-photo" size={30} color="#900" />
+                    </View>
+
+                    <View style={ { width: '35%', height: 80} }>
+                        <Icon style={{marginRight: 55}} name="comment" size={30} color="#900" />
+                    </View>
                 </View>
-                <View style={ { width: '65%', height: 80} }>
-                    <Text style={ { width: '100%' , textAlign: 'right'  } }>Comentarios</Text>
+                <View style={{flex:1, flexDirection: 'row'}}>
+                    <PhotoComentsComponent photoId={photoId}/>
                 </View>
             </View>
+       
         );
     }
 }
