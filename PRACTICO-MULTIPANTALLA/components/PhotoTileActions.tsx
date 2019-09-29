@@ -16,15 +16,15 @@ class PhotoTileActions extends React.Component<PhotoTileActionsProps, PhotoTileA
     render() { 
         const { urlImage } = this.props;
         return (
-            <View style={{flex: 1, flexDirection: 'row', height: '100%' }}>
-                <View>
+            <View style={{flex: 1, flexDirection: 'row'}}>
+                <View style={{height: 80}}>
                     <Button
                         buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
                         title='Ver ahora!' 
                         onPress={() => Linking.openURL(urlImage)}
                     />
                 </View>
-                <View style={ { width: '65%'} }>
+                <View style={ { width: '65%', height: 80} }>
                     <Text style={ { width: '100%' , textAlign: 'right'  } }>Comentarios</Text>
                 </View>
             </View>
