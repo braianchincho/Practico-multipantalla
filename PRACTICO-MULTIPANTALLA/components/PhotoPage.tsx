@@ -30,9 +30,14 @@ class PhotoPage extends React.Component<PhotoPageProps, PhotoPageState> {
     }
     render() { 
         const { photos } = this.state;
-        if(!photos || photos.length === 0) return <Text>Cargando...</Text>
+        if(!photos || photos.length === 0) return (
+        <View style={{flex:1 , backgroundColor: '#fff'}}>
+             <Text style={{textAlign:'center',backgroundColor:'#fff', fontSize:16}}>
+                 Cargando...
+            </Text>
+        </View>)
         return (  
-            <View style={{flex:1}}>
+            <View style={{flex:1 , backgroundColor: '#fff'}}>
                  <ScrollView> 
                     {
                         photos.map( photo => (

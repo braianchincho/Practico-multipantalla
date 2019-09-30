@@ -18,7 +18,7 @@ class PhotoTile extends React.Component<PhotoTileProps, PhotoTileState> {
     render() { 
         const  { urlImage, title, photoId } = this.props;
         return ( 
-            <View>
+            <View style={{backgroundColor:'#fff'}}>
                 <Tile
                     imageSrc={{uri: urlImage}}
                     title={title}

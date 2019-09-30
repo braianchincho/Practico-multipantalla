@@ -17,7 +17,7 @@ class PhotoTileActions extends React.Component<PhotoTileActionsProps, PhotoTileA
     render() { 
         const { urlImage , photoId } = this.props;
         return (
-            <View>
+            <View style={{backgroundColor: '#fff'}}>
                 <View style={{flex: 1, flexDirection: 'row'}}>
 
                     <View style={{height: 80 , width: '65%' }}>
@@ -30,7 +30,7 @@ class PhotoTileActions extends React.Component<PhotoTileActionsProps, PhotoTileA
                         <Icon style={{marginRight: 55}} name="comment" size={30} color="#900" />
                     </View>
                 </View>
-                <View style={{marginTop:40 ,height:'100%'}}>
+                <View style={{marginTop:40 ,height:250}}>
                     <PhotoComentsComponent photoId={photoId}/>
                 </View>
             </View>

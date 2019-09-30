@@ -55,7 +55,8 @@ class AlbumPage extends React.Component<AlbumPageProps, AlbumPageState> {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1
+      flex: 1,
+      backgroundColor: '#fff'
     }
   });
   
