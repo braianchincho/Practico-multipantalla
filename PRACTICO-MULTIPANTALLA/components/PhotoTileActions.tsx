@@ -30,7 +30,7 @@ class PhotoTileActions extends React.Component<PhotoTileActionsProps, PhotoTileA
                         <Icon style={{marginRight: 55}} name="comment" size={30} color="#900" />
                     </View>
                 </View>
-                <View style={{flex:1, flexDirection: 'row'}}>
+                <View style={{marginTop:40 ,height:'100%'}}>
                     <PhotoComentsComponent photoId={photoId}/>
                 </View>
             </View>
