@@ -45,9 +45,9 @@ class PhotoComentsComponent extends React.Component<PhotoComentsComponentProps, 
         }
         return ( 
           <View style={{flex:1,width: '100%', backgroundColor: '#fff'}}>
-                <Text style={{textAlign: 'center' , marginBottom:10 , fontSize: 16}}>
-                    Comentarios
-                </Text>
+            <Text style={{textAlign: 'center' , marginBottom:10 , fontSize: 16}}>
+                Comentarios
+            </Text>
              <ScrollView>
                 {
                     comments.map( (comment, index) => (

@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native';
 import AlbumPage from './components/AlbumPage';
 import PhotoPage from './components/PhotoPage';
 import PhotoTile from './components/PhotoTile';
+import PhotoCommentsPage from './components/PhotoCommentsPage';
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
          <Scene key = "home"  component = {AlbumPage} title = "Home" initial = {true} />
          <Scene key = "fotos" component = {PhotoPage} title = "Fotos" initial = {false} />
          <Scene key = "foto" component = {PhotoTile} title = "Foto" initial = {false} />
+         <Scene key = "comentarios" component = {PhotoCommentsPage} title = "Comentarios" initial = {false} />
       </Scene>
     </Router>
   );

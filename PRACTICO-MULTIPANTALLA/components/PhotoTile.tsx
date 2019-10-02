@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Tile, Button } from 'react-native-elements';
-import { View, Text, Linking } from 'react-native';
+import { View, Text, Linking, ImageBackground } from 'react-native';
 import PhotoTileActions from './PhotoTileActions';
 export interface PhotoTileProps {
     urlImage: string,
@@ -18,12 +18,11 @@ class PhotoTile extends React.Component<PhotoTileProps, PhotoTileState> {
     render() { 
         const  { urlImage, title, photoId } = this.props;
         return ( 
-            <View style={{backgroundColor:'#fff'}}>
-                <Tile
-                    imageSrc={{uri: urlImage}}
-                    title={title}
-                 />
-                <PhotoTileActions urlImage={urlImage} photoId={photoId}/>
+            <View style={{backgroundColor:'#fff', height:'100%'}}>        
+                <ImageBackground source={{uri: urlImage}} style={{width: '100%', height: '85%'}}/>
+                <View style= {{height:'15%'}}>
+                    <PhotoTileActions urlImage={urlImage} photoId={photoId} />     
+                </View>
             </View>
 
          );
