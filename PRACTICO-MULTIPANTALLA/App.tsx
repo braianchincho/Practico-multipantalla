@@ -1,10 +1,9 @@
 import React from 'react';
 import { Router, Scene } from 'react-native-router-flux';
-import { StyleSheet, View } from 'react-native';
-import AlbumPage from './components/AlbumPage';
-import PhotoPage from './components/PhotoPage';
-import PhotoTile from './components/PhotoTile';
-import PhotoCommentsPage from './components/PhotoCommentsPage';
+import AlbumPage from './components/Album/AlbumPage';
+import PhotoPage from './components/photos/PhotoPage';
+import PhotoTile from './components/photos/PhotoTile';
+import PhotoCommentsPage from './components/photoComments/PhotoCommentsPage';
 
 export default function App() {
   return (
