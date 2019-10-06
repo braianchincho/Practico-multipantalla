@@ -6,17 +6,14 @@ export interface PhotoTileProps {
     urlImage: string,
     title: string,
     photoId: string
-
 }
  
-export interface PhotoTileState {
-    
-}
+export interface PhotoTileState {}
  
 class PhotoTile extends React.Component<PhotoTileProps, PhotoTileState> {
     state = {}
     render() { 
-        const  { urlImage, title, photoId } = this.props;
+        const  { urlImage, photoId } = this.props;
         return ( 
             <View style={{backgroundColor:'#fff'}}>    
                 <View style={{height:'85%'}}>

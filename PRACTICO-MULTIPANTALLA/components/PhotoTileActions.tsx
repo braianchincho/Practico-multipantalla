@@ -5,34 +5,33 @@ import { Actions } from 'react-native-router-flux';
 export interface PhotoTileActionsProps {
     urlImage: string,
     photoId: string
+}
+ 
+export interface PhotoTileActionsState {}
 
-}
- 
-export interface PhotoTileActionsState {
-    
-}
- 
+const iconColor= "#91D5D0"
+
 class PhotoTileActions extends React.Component<PhotoTileActionsProps, PhotoTileActionsState> {
     state = {  }
-    goToComentarios = () => {
+    goToComentarios = (photoId) => {
         console.log('ir a comentarios');
-        Actions.comentarios({photoId:this.props.photoId});
+        Actions.comentarios({photoId: photoId});
     }
     render() { 
         const { urlImage , photoId } = this.props;
         return (
-            <View style={{flex: 1, flexDirection: 'row' , backgroundColor:'#FFF'}}>
+            <View style={{flex: 1, flexDirection: 'row' , backgroundColor:'#EFF0F0'}}>
                 <View style={{width: '20%'}}>
                     <Icon
                         onPress={() => Linking.openURL(urlImage)}
-                        name="add-a-photo" size={30} color="#900"
+                        name="add-a-photo" size={25} color={iconColor}
                         reverse={true} />
                 </View>
                 <View style={{ width: '60%' }}/>
                 <View style={{width: '20%'} }>
                     <Icon
-                        onPress={() => this.goToComentarios()}
-                        name="comment" size={30} color="#900"
+                        onPress={() => this.goToComentarios(photoId)}
+                        name="comment" size={25} color={iconColor}
                         reverse={true} />
                 </View>
             </View>
