@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { Text } from 'react-native';
-import {  ListItem } from 'react-native-elements'
+import {  ListItem, Icon } from 'react-native-elements'
 import { Actions } from 'react-native-router-flux';
 export interface AlbumItemProps {
-    photo: any
+    album: any,
+    iconAlbum: any
 }
  
 export interface AlbumItemState {
@@ -13,19 +14,17 @@ export interface AlbumItemState {
 class AlbumItem extends React.Component<AlbumItemProps, AlbumItemState> {
     state = {  };
     render() { 
-        const { photo } = this.props;
-        const icon = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`;
-
-        if(!photo) return <Text>...Cargando</Text>; 
-
+        const { album, iconAlbum } = this.props;
+        if(!album) return <Text>...Cargando</Text>; 
+       
         return ( 
             <ListItem
-                key={photo.id}
-                title={photo.title._content}
-                leftAvatar={{ source: { uri: icon } }}
+                key={album.id}
+                title={album.title._content}
+                leftAvatar={ iconAlbum }
                 bottomDivider
                 chevron
-                onPress={() => Actions.fotos({albumId: photo.id})}
+                onPress={() => Actions.fotos({albumId: album.id})}
             />
         );
     }

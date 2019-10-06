@@ -3,16 +3,21 @@ import { Text, View, ScrollView } from 'react-native';
 import axios from 'axios';
 import AlbumItem from './AlbumItem';
 import { StyleSheet } from 'react-native';
+import { Icon } from 'react-native-elements';
 export interface AlbumPageProps {
     
 }
  
 export interface AlbumPageState {
-    photoset: any
+    photoset: any,
+    iconAlbum: any
 }
  
 class AlbumPage extends React.Component<AlbumPageProps, AlbumPageState> {
-    state: AlbumPageState = { photoset: null }
+    state: AlbumPageState = { 
+        photoset: null,
+        iconAlbum: <Icon name="folder-open" />
+     }
 
     componentWillMount() {
         if(!this.state.photoset) {
@@ -35,16 +40,17 @@ class AlbumPage extends React.Component<AlbumPageProps, AlbumPageState> {
     }
 
     render() { 
-        const { photoset } = this.state;
+        const { photoset , iconAlbum } = this.state;
         if(!photoset) return null; 
         
         return ( 
             <View style={styles.container}>
                  <ScrollView>
-                    { photoset.map( photo =>  (
+                    { photoset.map( album =>  (
                         <AlbumItem 
-                            photo={photo}
-                            key={photo.id}
+                            album={album}
+                            iconAlbum={iconAlbum}
+                            key={album.id}
                         />
                     ) ) }
                  </ScrollView>
