@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import PhotoComentsComponent from './PhotoComentsComponent';
 import axios from 'axios';
 import { Text } from 'react-native-elements';
+import SpinnerPage from '../shared/SpinnerPage';
 export interface PhotoCommentsPageProps {
     photoId: string
 }
@@ -29,13 +30,7 @@ class PhotoCommentsPage extends React.Component<PhotoCommentsPageProps, PhotoCom
     render() { 
         const { comments , loading } = this.state;
         if(loading) {
-            return (
-                <View style={{backgroundColor:'#FFF', height:'100%'}}>
-                    <Text style={{textAlign: 'center' , marginTop:15, fontSize: 16}}>
-                        Cargando comentarios...
-                    </Text>
-                </View>
-            ); 
+            return ( <SpinnerPage message="Cargando comentarios..."/> ); 
         }
         return ( 
             <PhotoComentsComponent comments={comments} photoId={this.props.photoId}/>

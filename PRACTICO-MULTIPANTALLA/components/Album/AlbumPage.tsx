@@ -4,19 +4,22 @@ import axios from 'axios';
 import AlbumItem from './AlbumItem';
 import { StyleSheet } from 'react-native';
 import { Icon } from 'react-native-elements';
+import SpinnerPage from '../shared/SpinnerPage';
 export interface AlbumPageProps {
     
 }
  
 export interface AlbumPageState {
     photoset: any,
-    iconAlbum: any
+    iconAlbum: any,
+    loading: boolean
 }
  
 class AlbumPage extends React.Component<AlbumPageProps, AlbumPageState> {
     state: AlbumPageState = { 
         photoset: null,
-        iconAlbum: <Icon name="folder-open" />
+        iconAlbum: <Icon name="folder-open" />,
+        loading: false
      }
 
     componentWillMount() {
@@ -32,15 +35,22 @@ class AlbumPage extends React.Component<AlbumPageProps, AlbumPageState> {
         const base = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getList';
         const url = `${base}&api_key=${apiKey}&user_id=${usrId}&format=json&nojsoncallback=1&page=1&per_page=20`;
 
+        this.setState({loading: true});
         axios.get(url).then(response => {
-            this.setState({ photoset: response.data.photosets.photoset })
-        });
+            this.setState({ 
+                photoset: response.data.photosets.photoset,
+                loading: false
+            })
+        }).catch(err => this.setState({loading: true}));
    
    
     }
 
     render() { 
-        const { photoset , iconAlbum } = this.state;
+        const { photoset, iconAlbum, loading } = this.state;
+        
+        if(loading) return (<SpinnerPage message="...Cargando"/>);
+
         if(!photoset) return null; 
         
         return ( 
