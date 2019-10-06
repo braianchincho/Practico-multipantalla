@@ -22,9 +22,9 @@ class PhotoCommentsPage extends React.Component<PhotoCommentsPageProps, PhotoCom
         this.setState({loading:true})
         axios.get(url)
             .then(response => {
-                this.setState({ comments: response.data.comments.comment , loading:false }) 
+                this.setState({ comments: response.data.comments.comment , loading: false }) 
             }
-        ).catch(err => this.setState({ comments: [] , loading:false }) );
+        ).catch(err => this.setState({ comments: [] , loading: false }) );
     }
     render() { 
         const { comments , loading } = this.state;
