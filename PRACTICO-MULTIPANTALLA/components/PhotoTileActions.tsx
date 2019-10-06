@@ -14,7 +14,6 @@ const iconColor= "#91D5D0"
 class PhotoTileActions extends React.Component<PhotoTileActionsProps, PhotoTileActionsState> {
     state = {  }
     goToComentarios = (photoId) => {
-        console.log('ir a comentarios');
         Actions.comentarios({photoId: photoId});
     }
     render() { 

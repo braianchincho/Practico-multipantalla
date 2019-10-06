@@ -21,11 +21,8 @@ class PhotoPage extends React.Component<PhotoPageProps, PhotoPageState> {
         const usrId = '31804708@N02'; 
         const base = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos';
         const url = `${base}&api_key=${apiKey}&user_id=${usrId}&photoset_id=${this.props.albumId}&format=json&nojsoncallback=1&page=1&per_page=20`;
-        console.log(url)
         axios.get(url).then(response => {
-           // console.log(response)
             this.setState({ photos: response.data.photoset.photo })
-            //console.log(response.data.photoset)
         });
     }
     render() { 
