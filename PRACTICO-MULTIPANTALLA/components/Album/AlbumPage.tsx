@@ -48,8 +48,8 @@ class AlbumPage extends React.Component<AlbumPageProps, AlbumPageState> {
 
     render() { 
         const { photoset, iconAlbum, loading } = this.state;
-        
-        if(loading) return (<SpinnerPage message="...Cargando"/>);
+
+        if(loading) return (<SpinnerPage message="Cargando.."/>);
 
         if(!photoset) return null; 
         
