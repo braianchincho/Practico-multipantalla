@@ -29,8 +29,5 @@
     "android": {
       "package": "com.dsmp"
     }
-  },
-  "android": {
-    "package": "com.dsmp"
   }
 }
